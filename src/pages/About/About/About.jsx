@@ -21,7 +21,7 @@ const About = () => {
           About <span className="text-white text-4xl">Me</span>
         </h1>
       </div>
-      <div className="md:flex justify-between items-center gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2  gap-8">
         <div className="text-white md:ml-16 mt-4">
           <h1 className=" font-semibold text-2xl ">
             Name: <span className="text-indigo-600 text-2xl">MD ABDULLAH</span>
@@ -42,14 +42,14 @@ const About = () => {
             Phone: <span className="text-indigo-600 text-2xl">01735752241</span>
           </p>
         </div>
-        <div className="grid grid-cols-2 font-semibold text-xl text-center ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 font-semibold text-xl text-center ">
           <div className="space-y-2 m-4 p-4 border border-indigo-600 rounded-md">
             <FaRunning className="text-4xl mx-auto hover:text-6xl" />
             <h1>Experience</h1>
             <p>1 Year of Experience (Running)</p>
           </div>
           <div className="space-y-2 m-4 p-4 border border-indigo-600 rounded-md">
-            <IoIosPeople className="text-4xl mx-auto hover:text-6xl" />
+            <IoIosPeople className="text-4xl  mx-auto hover:text-6xl" />
             <h1>Clients</h1>
             <p>5+ Happy Clients</p>
           </div>
