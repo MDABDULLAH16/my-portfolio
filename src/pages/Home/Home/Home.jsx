@@ -1,9 +1,14 @@
 import React from "react";
 
+import About from "../../About/About/About";
+import Banner from "../Banner/Banner";
+
 const Home = () => {
+  const custom = <></>;
   return (
-    <div data-aos="fade-up">
-      <h1>this is home</h1>
+    <div>
+      <Banner></Banner>
+      <About></About>
     </div>
   );
 };
