@@ -4,10 +4,13 @@ import Typewriter from "react-ts-typewriter";
 import { TypeAnimation } from "react-type-animation";
 import { FaGithub, FaFacebook, FaArrowDown } from "react-icons/fa";
 import { TiSocialLinkedin } from "react-icons/ti";
+import TitleSection from "../../../components/TitleSection/TitileSection";
+import "./Banner.css";
 
 const Banner = () => {
   return (
-    <div className="bg-[#010313]">
+    <div className="banner-bg ">
+      <TitleSection helmet={"Banner"}></TitleSection>
       <div className="md:flex items-center  min-h-screen  text-white  ">
         <div
           data-aos="fade-up-right"

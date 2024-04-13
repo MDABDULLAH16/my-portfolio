@@ -14,10 +14,16 @@ import nodeJs from "../../assets/skills/nodeJs.png";
 import express from "../../assets/skills/express.png";
 import mongoDB from "../../assets/skills/mongoDB.png";
 import figma from "../../assets/skills/figma.png";
+import TitleSection from "../../components/TitleSection/TitileSection";
 const Skills = () => {
   return (
     <div className="min-h-screen text-white bg-[#010313]">
-      <Helmet>
+      <TitleSection
+        header={"My"}
+        optional={"Skills"}
+        helmet={"Skills"}
+      ></TitleSection>
+      {/* <Helmet>
         <title>MD ABDULLAH | Skills</title>
       </Helmet>
       <div
@@ -27,7 +33,7 @@ const Skills = () => {
         <h1 className="py-6">
           My <span className="text-white text-4xl">Skills</span>
         </h1>
-      </div>
+      </div> */}
 
       {/* content */}
       <div>
