@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
 import "./navbar.css";
+import logo from "../../assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,12 +56,13 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-indigo-500 text-2xl   ">
+    <nav className="bg-indigo-400 text-2xl   ">
       <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <Link to="/">
+                {/* <img className=" h-8" src={logo} alt="" srcset="" /> */}
                 <span className="text-white font-semibold">MD ABDULLAH</span>
               </Link>
             </div>
