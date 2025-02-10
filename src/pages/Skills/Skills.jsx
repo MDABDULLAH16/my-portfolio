@@ -6,6 +6,7 @@ import html from "../../assets/skills/html.png";
 import css from "../../assets/skills/css.png";
 import javaScript from "../../assets/skills/javaScript.png";
 import react from "../../assets/skills/react.png";
+import nextjs from "../../assets/skills/nextjs.svg";
 import bootstrap from "../../assets/skills/bootstrap.png";
 import tailwind from "../../assets/skills/tailwind.png";
 import firebase from "../../assets/skills/firebase.png";
@@ -14,6 +15,7 @@ import nodeJs from "../../assets/skills/nodeJs.png";
 import express from "../../assets/skills/express.png";
 import mongoDB from "../../assets/skills/mongoDB.png";
 import figma from "../../assets/skills/figma.png";
+import typeScript from "../../assets/skills/typeScript.png";
 import TitleSection from "../../components/TitleSection/TitileSection";
 const Skills = () => {
   return (
@@ -93,8 +95,26 @@ const Skills = () => {
               data-aos-duration="1500"
               className="p-8 m-4 text-center rounded-md bg-[#24244B] "
             >
+              <img className="w-12 h-16 mx-auto " src={typeScript} alt="" />
+              <h1 className="font-semibold text-2xl">TypeScript</h1>
+            </div>
+            <div
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="1500"
+              className="p-8 m-4 text-center rounded-md bg-[#24244B] "
+            >
               <img className="w-12 h-16 mx-auto " src={react} alt="" />
               <h1 className="font-semibold text-2xl">React</h1>
+            </div>
+            <div
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="1500"
+              className="p-8 m-4 text-center rounded-md bg-[#24244B] "
+            >
+              <img className="w-12 h-16 mx-auto" src={nextjs} alt="" />
+              <h1 className="font-semibold text-2xl">Next.js</h1>
             </div>
             <div
               data-aos="fade-down"

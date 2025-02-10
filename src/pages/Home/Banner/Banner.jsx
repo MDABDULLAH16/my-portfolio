@@ -1,5 +1,5 @@
 import React from "react";
-import profilePic from "../../../assets/Abdullah_Pic-removebg-preview.png";
+import profilePic from "../../../assets/mypic.png";
 import Typewriter from "react-ts-typewriter";
 import { TypeAnimation } from "react-type-animation";
 import { FaGithub, FaFacebook, FaArrowDown } from "react-icons/fa";
@@ -19,7 +19,7 @@ const Banner = () => {
           className="flex-1 flex items-center justify-center md:ml-16"
         >
           <div>
-            <span className=" font-semibold">Hi THERE!</span>
+            <span className=" font-semibold">Welcome to my Website</span>
             <h1 className="font-semibold text-3xl">
               I'M <span className="text-indigo-600">MD ABDULLAH</span>
             </h1>
@@ -85,7 +85,7 @@ const Banner = () => {
           data-aos-easing="ease-in-sine"
           className="flex-1 flex justify-center items-center "
         >
-          <img src={profilePic} alt="Profile" />
+          {/* <img src={profilePic} alt="Profile"  /> */}
         </div>
       </div>
     </div>

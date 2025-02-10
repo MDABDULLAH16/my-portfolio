@@ -1,11 +1,11 @@
 import React from "react";
 import TitleSection from "../../components/TitleSection/TitileSection";
-import webdesign from "../../assets/services/webdesign.png";
+// import webdesign from "../../assets/services/webdesign.png";
 import webdevelopment from "../../assets/services/webdevelopment.png";
 import responsive from "../../assets/services/responsive.png";
 import onepage from "../../assets/services/onepage.png";
 import bugfixing from "../../assets/services/bugfixing.png";
-import { MotionAnimate } from "react-motion-animate";
+// import { MotionAnimate } from "react-motion-animate";
 
 const Services = () => {
   return (
@@ -16,7 +16,7 @@ const Services = () => {
         helmet={"services"}
       ></TitleSection>
       <div className="grid grid-cols-2 place-items-center gap-4  ">
-        <div data-aos="flip-left">
+        {/* <div data-aos="flip-left">
           <div className="h-[500px] max-w-sm hover:bg-gray-900 overflow-hidden overflow-ellipsis">
             <h1 className="text-center p-2 bg-indigo-600 text-2xl font-semibold">
               Web Design
@@ -38,7 +38,7 @@ const Services = () => {
               newsletter, or simply exploring content.
             </p>
           </div>
-        </div>
+        </div> */}
 
         <div data-aos="flip-right">
           <div className="h-[500px] max-w-sm hover:bg-gray-900 overflow-hidden overflow-ellipsis">

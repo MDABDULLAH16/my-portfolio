@@ -27,8 +27,8 @@ const About = () => {
           About <span className="text-white text-4xl">Me</span>
         </h1>
       </div> */}
-      <div className="grid grid-cols-1 md:grid-cols-2  gap-8">
-        <div className="text-white md:ml-16 mt-4 flex items-center">
+      <div className=" grid-cols-1 md:grid-cols-2  gap-8">
+        {/* <div className="text-white md:ml-16 mt-4 flex items-center">
           <div>
             <h1 className=" font-semibold text-2xl ">
               Name:{" "}
@@ -36,22 +36,21 @@ const About = () => {
             </h1>
             <p className=" font-semibold text-2xl  ">
               Education:
-              <span className="text-indigo-600 text-2xl">
-                Honer's Second Year
+              <span className="text-indigo-600 text-2xl"> Honer's Second Year
               </span>
             </p>
             <p className=" font-semibold text-2xl ">
               Location:
-              <span className="text-indigo-600 text-2xl">
-                Jamalpur,Mymonshingh,Bangladesh
-              </span>
+            
+                <span className="text-indigo-600 text-2xl"> Jamalpur,Mymonshingh,Bangladesh</span>
+             
             </p>
             <p className=" font-semibold text-2xl ">
-              Phone:{" "}
-              <span className="text-indigo-600 text-2xl">01735752241</span>
+              Phone:
+              <span className="text-indigo-600 text-2xl"> 01735752241</span>
             </p>
           </div>
-        </div>
+        </div> */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 font-semibold text-xl text-center ">
           <div className="space-y-2 m-4 p-4 border border-indigo-600 rounded-md">
             <FaRunning className="text-4xl mx-auto hover:text-6xl transform" />
