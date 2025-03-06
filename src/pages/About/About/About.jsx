@@ -1,78 +1,77 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import coolbg from "../../../assets/cool-background.png";
 import { FaRunning } from "react-icons/fa";
 import { IoIosPeople } from "react-icons/io";
 import { GrProjects } from "react-icons/gr";
 import { FiAward } from "react-icons/fi";
+import { motion } from "framer-motion";
 import TitleSection from "../../../components/TitleSection/TitileSection";
 
 const About = () => {
   return (
-    <div className="bg-[#010313] text-white min-h-screen">
-      <TitleSection
-        helmet={"about me"}
-        header={"About"}
-        optional={"Me"}
-      ></TitleSection>
-      {/* <Helmet>
-        <title>MD ABDULLAH | About Me</title>
+    <div className="bg-white dark:bg-[#111827] text-gray-900 dark:text-white min-h-screen py-10 px-6 md:px-16">
+      <Helmet>
+        <title>About Me</title>
       </Helmet>
+      <TitleSection helmet={"about me"} header={"About"} optional={"Me"} />
 
-      <div
-        className="text-center font-bold text-4xl text-indigo-600 "
-        data-aos="fade-down"
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }} 
+        animate={{ opacity: 1, y: 0 }} 
+        transition={{ duration: 0.6 }}
+        className="max-w-5xl mx-auto text-center"
       >
-        <h1 className="py-6">
-          About <span className="text-white text-4xl">Me</span>
-        </h1>
-      </div> */}
-      <div className=" grid-cols-1 md:grid-cols-2  gap-8">
-        {/* <div className="text-white md:ml-16 mt-4 flex items-center">
-          <div>
-            <h1 className=" font-semibold text-2xl ">
-              Name:{" "}
-              <span className="text-indigo-600 text-2xl">MD ABDULLAH</span>
-            </h1>
-            <p className=" font-semibold text-2xl  ">
-              Education:
-              <span className="text-indigo-600 text-2xl"> Honer's Second Year
-              </span>
-            </p>
-            <p className=" font-semibold text-2xl ">
-              Location:
-            
-                <span className="text-indigo-600 text-2xl"> Jamalpur,Mymonshingh,Bangladesh</span>
-             
-            </p>
-            <p className=" font-semibold text-2xl ">
-              Phone:
-              <span className="text-indigo-600 text-2xl"> 01735752241</span>
-            </p>
-          </div>
-        </div> */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 font-semibold text-xl text-center ">
-          <div className="space-y-2 m-4 p-4 border border-indigo-600 rounded-md">
-            <FaRunning className="text-4xl mx-auto hover:text-6xl transform" />
-            <h1>Experience</h1>
-            <p>1 Year of Experience (Running)</p>
-          </div>
-          <div className="space-y-2 m-4 p-4 border border-indigo-600 rounded-md">
-            <IoIosPeople className="text-4xl  mx-auto hover:text-6xl" />
-            <h1>Clients</h1>
-            <p>5+ Happy Clients</p>
-          </div>
-          <div className="space-y-2 m-4 p-4 border border-indigo-600 rounded-md">
-            <GrProjects className="text-4xl mx-auto hover:text-6xl" />
-            <h1>Projects</h1>
-            <p>10+ Complete Projects</p>
-          </div>
-          <div className="space-y-2 m-4 p-4 border border-indigo-600 rounded-md">
-            <FiAward className="text-4xl mx-auto hover:text-6xl" />
-            <h1>Awards</h1>
-            <p>2+ Award Won</p>
-          </div>
-        </div>
+        <p className="text-lg md:text-xl mb-6 leading-relaxed">
+          I'm a passionate MERN Stack Developer skilled in modern web technologies.
+          Constantly exploring AI and Cloud Computing, I thrive on solving complex
+          problems and crafting seamless user experiences.
+        </p>
+        <p className="text-lg md:text-xl mb-6 leading-relaxed">
+          With a strong foundation in JavaScript, React, and backend technologies,
+          I build scalable and high-performance applications. My experience with
+          Firebase, Next.js, and ReduxToolkit allows me to create dynamic and interactive
+          user interfaces. I also have expertise in database management using MongoDB
+          and Express.js.
+        </p>
+        <p className="text-lg md:text-xl mb-6 leading-relaxed">
+          Beyond coding, I am a quick learner and adaptable to new technologies.
+          I enjoy collaborating with teams, managing projects efficiently, and constantly
+          improving my skills to stay updated with industry trends.
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+        {[
+          { icon: <FaRunning className="text-4xl" />, label: "Fast Learning" },
+          { icon: <IoIosPeople className="text-4xl" />, label: "Team Player" },
+          { icon: <GrProjects className="text-4xl" />, label: "Project Management" },
+          { icon: <FiAward className="text-4xl" />, label: "Award Winning" }
+        ].map((item, index) => (
+          <motion.div 
+            key={index} 
+            whileHover={{ scale: 1.05 }} 
+            className="bg-gray-100 dark:bg-gray-800 p-6 rounded-xl shadow-md flex flex-col items-center space-y-3"
+          >
+            {item.icon}
+            <span className="text-lg font-semibold">{item.label}</span>
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          "JavaScript (ES6)", "TypeScript", "React", "Next.js", "NextAuth.js", "ReduxToolkit",
+          "Firebase", "Tailwind CSS", "Bootstrap", "Node.js", "Express.js", "MongoDB",
+          "Mongoose", "AamarPay", "Git & GitHub", "Vercel", "Heroku", "Netlify"
+        ].map((tech, index) => (
+          <motion.div 
+            key={index} 
+            whileHover={{ scale: 1.1 }}
+            className="bg-gray-100 dark:bg-gray-800 p-3 rounded-lg text-center shadow-sm"
+          >
+            {tech}
+          </motion.div>
+        ))}
       </div>
     </div>
   );
