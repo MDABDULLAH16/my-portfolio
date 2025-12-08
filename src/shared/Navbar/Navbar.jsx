@@ -162,32 +162,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-      <div className={`${isOpen ? "block" : "hidden"} md:hidden bg-[#1E40AF] dark:bg-[#2563EB] text-center`}>
-        <div className="px-4 pt-2 pb-3 flex flex-col space-y-2">
-          {navItems.map(({ name, path }) => (
-            <Link
-              key={name}
-              to={path}
-              onClick={() => setIsOpen(false)}
-              className={`text-[#E5E7EB] dark:text-[#F9FAFB] text-lg font-medium py-2 hover:text-[#1F2937] dark:hover:text-[#1E40AF] ${
-                location.pathname === path ? "text-[#1E40AF] dark:text-[#2563EB] border-b-2 border-[#1E40AF] dark:border-[#2563EB]" : ""
-              }`}
-            >
-              {name}
-            </Link>
-          ))}
-        </div>
-
-        {/* Dark Mode Toggle for Mobile */}
-        <button
-          onClick={toggleDarkMode}
-          className="mt-2 text-[#E5E7EB] dark:text-[#F9FAFB] p-2 rounded-full hover:bg-[#1F2937] dark:hover:bg-[#2563EB] transition"
-        >
-          {darkMode ? <BsSun className="h-6 w-6" /> : <BsMoon className="h-6 w-6" />}
-        </button>
-      </div>
-    </nav>
-  );
-};
-
-export default Navbar;
