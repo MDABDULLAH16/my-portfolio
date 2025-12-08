@@ -31,9 +31,9 @@ const TitleSection = ({ helmet, header, optional }) => {
         className="relative text-center max-w-4xl mx-auto px-6"
       >
         <div className="inline-block mb-4">
-          <span className="px-4 py-2 bg-blue-500/20 border border-blue-500/50 rounded-full text-blue-300 text-sm font-semibold">
+          {/* <span className="px-4 py-2 bg-blue-500/20 border border-blue-500/50 rounded-full text-blue-300 text-sm font-semibold">
             {optional || "My Work"}
-          </span>
+          </span> */}
         </div>
 
         <motion.h1

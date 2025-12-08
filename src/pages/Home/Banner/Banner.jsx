@@ -1,8 +1,8 @@
 import React from "react";
 import profilePic from "../../../assets/Abdullah_new.png";
 import { TypeAnimation } from "react-type-animation";
-import { FaArrowDown, FaGithub, FaLinkedin } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
+import { FaArrowDown, FaGithub, FaLinkedin,FaFacebook } from "react-icons/fa";
+ 
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import "./Banner.css";
@@ -69,7 +69,10 @@ const Banner = () => {
             </span>
           </motion.h1>
 
-          <motion.h2 variants={itemVariants} className="text-2xl md:text-4xl font-semibold mt-4 text-gray-300">
+          <motion.h2
+            variants={itemVariants}
+            className="text-2xl md:text-4xl font-semibold mt-4 text-gray-300"
+          >
             <span className="inline-block">I'm a </span>
             <span className="inline-block ml-2">
               <TypeAnimation
@@ -91,11 +94,19 @@ const Banner = () => {
             </span>
           </motion.h2>
 
-          <motion.p variants={itemVariants} className="text-gray-300 text-lg mt-6 max-w-md">
-            Passionate about building scalable, modern web applications using the MERN stack. I create responsive, high-performance digital solutions.
+          <motion.p
+            variants={itemVariants}
+            className="text-gray-300 text-lg mt-6 max-w-md"
+          >
+            Passionate about building scalable, modern web applications using
+            the MERN stack. I create responsive, high-performance digital
+            solutions.
           </motion.p>
 
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mt-8">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-4 mt-8"
+          >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 target="_blank"
@@ -116,7 +127,10 @@ const Banner = () => {
           </motion.div>
 
           {/* Social Links */}
-          <motion.div variants={itemVariants} className="flex gap-6 mt-8 justify-center md:justify-start">
+          <motion.div
+            variants={itemVariants}
+            className="flex gap-6 mt-8 justify-center md:justify-start"
+          >
             <motion.a
               whileHover={{ scale: 1.2, rotateZ: 10 }}
               href="https://github.com/MDABDULLAH16"
@@ -142,7 +156,7 @@ const Banner = () => {
               rel="noopener noreferrer"
               className="p-3 bg-gray-800/50 hover:bg-blue-500/20 border border-gray-700 hover:border-blue-500 rounded-full transition-all duration-300"
             >
-              <SiLeetcode className="w-6 h-6" />
+              <FaFacebook className="w-6 h-6" />
             </motion.a>
           </motion.div>
         </motion.div>
