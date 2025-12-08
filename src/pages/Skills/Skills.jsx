@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { motion } from "motion/react";
 
 //img
 import html from "../../assets/skills/html.png";
@@ -17,170 +18,145 @@ import mongoDB from "../../assets/skills/mongoDB.png";
 import figma from "../../assets/skills/figma.png";
 import typeScript from "../../assets/skills/typeScript.png";
 import TitleSection from "../../components/TitleSection/TitileSection";
+
+const skillsData = {
+  frontend: [
+    { img: html, name: "HTML5", level: 95 },
+    { img: css, name: "CSS3", level: 93 },
+    { img: javaScript, name: "JavaScript", level: 92 },
+    { img: typeScript, name: "TypeScript", level: 85 },
+    { img: react, name: "React", level: 95 },
+    { img: nextjs, name: "Next.js", level: 88 },
+    { img: tailwind, name: "Tailwind CSS", level: 94 },
+    { img: bootstrap, name: "Bootstrap", level: 90 },
+  ],
+  backend: [
+    { img: nodeJs, name: "Node.js", level: 90 },
+    { img: express, name: "Express.js", level: 92 },
+    { img: mongoDB, name: "MongoDB", level: 88 },
+    { img: firebase, name: "Firebase", level: 85 },
+  ],
+  tools: [
+    { img: figma, name: "Figma", level: 80 },
+    { img: heroku, name: "Heroku", level: 85 },
+  ],
+};
+
+const SkillCard = ({ skill, index, total }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
+      whileHover={{ translateY: -8, scale: 1.05 }}
+      className="group relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 overflow-hidden"
+    >
+      {/* Gradient Background on Hover */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:via-purple-500/10 group-hover:to-blue-500/10 transition-all duration-300" />
+
+      <div className="relative z-10 flex flex-col items-center">
+        <motion.div
+          className="relative mb-4"
+          whileHover={{ scale: 1.15, rotate: 10 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <img className="w-16 h-16 object-contain filter drop-shadow-lg" src={skill.img} alt={skill.name} />
+        </motion.div>
+        <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-2 text-center">{skill.name}</h3>
+
+        {/* Progress Bar */}
+        <div className="w-full">
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-xs font-semibold text-gray-600 dark:text-gray-400">{skill.level}%</span>
+          </div>
+          <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: `${skill.level}%` }}
+              transition={{ duration: 1, delay: index * 0.05 + 0.3 }}
+              className="h-full bg-gradient-to-r from-blue-500 to-purple-600 rounded-full shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const Skills = () => {
   return (
-    <div className="min-h-screen text-white bg-[#010313]">
-      <TitleSection
-        header={"My"}
-        optional={"Skills"}
-        helmet={"Skills"}
-      ></TitleSection>
-      {/* <Helmet>
-        <title>MD ABDULLAH | Skills</title>
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+      <Helmet>
+        <title>Skills | MD Abdullah</title>
       </Helmet>
-      <div
-        className="text-center font-bold text-4xl text-indigo-600 "
-        data-aos="flip-right"
-      >
-        <h1 className="py-6">
-          My <span className="text-white text-4xl">Skills</span>
-        </h1>
-      </div> */}
 
-      {/* content */}
-      <div>
-        <fieldset className="border border-indigo-600 ">
-          <legend className="p-4 text-center font-semibold text-indigo-600 uppercase text-2xl">
-            Tools/Technologies
-          </legend>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            <div
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              className="p-8 m-4 text-center rounded-md bg-[#24244B] "
-            >
-              <img className="w-12 h-16 mx-auto " src={html} alt="" />
-              <h1 className="font-semibold text-2xl">HTML</h1>
-            </div>
-            <div
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              className="p-8 m-4 text-center rounded-md bg-[#24244B] "
-            >
-              <img className="w-12 h-16 mx-auto " src={css} alt="" />
-              <h1 className="font-semibold text-2xl">CSS</h1>
-            </div>
-            <div
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              className="p-8 m-4 text-center rounded-md bg-[#24244B] "
-            >
-              <img className="w-12 h-16 mx-auto " src={bootstrap} alt="" />
-              <h1 className="font-semibold text-2xl">Bootstrap</h1>
-            </div>
-            <div
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              className="p-8 m-4 text-center rounded-md bg-[#24244B] "
-            >
-              <img className="w-12 h-16 mx-auto " src={tailwind} alt="" />
-              <h1 className="font-semibold text-2xl">Tailwind</h1>
-            </div>
-            <div
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              className="p-8 m-4 text-center rounded-md bg-[#24244B] "
-            >
-              <img className="w-12 h-16 mx-auto " src={javaScript} alt="" />
-              <h1 className="font-semibold text-2xl">JavaScript</h1>
-            </div>
-            <div
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              className="p-8 m-4 text-center rounded-md bg-[#24244B] "
-            >
-              <img className="w-12 h-16 mx-auto " src={typeScript} alt="" />
-              <h1 className="font-semibold text-2xl">TypeScript</h1>
-            </div>
-            <div
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              className="p-8 m-4 text-center rounded-md bg-[#24244B] "
-            >
-              <img className="w-12 h-16 mx-auto " src={react} alt="" />
-              <h1 className="font-semibold text-2xl">React</h1>
-            </div>
-            <div
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              className="p-8 m-4 text-center rounded-md bg-[#24244B] "
-            >
-              <img className="w-12 h-16 mx-auto" src={nextjs} alt="" />
-              <h1 className="font-semibold text-2xl">Next.js</h1>
-            </div>
-            <div
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              className="p-8 m-4 text-center rounded-md bg-[#24244B] "
-            >
-              <img className="w-12 h-16 mx-auto " src={nodeJs} alt="" />
-              <h1 className="font-semibold text-2xl">NodeJs</h1>
-            </div>
-            <div
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              className="p-8 m-4 text-center rounded-md bg-[#24244B] "
-            >
-              <img className="w-12 h-16 mx-auto " src={express} alt="" />
-              <h1 className="font-semibold text-2xl">Express</h1>
-            </div>
+      <div className="py-12">
+        <TitleSection header={"My Skills"} helmet={"Skills"} />
+      </div>
 
-            <div
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              className="p-8 m-4 text-center rounded-md bg-[#24244B] "
-            >
-              <img className="w-12 h-16 mx-auto " src={firebase} alt="" />
-              <h1 className="font-semibold text-2xl">Firebase</h1>
-            </div>
-
-            <div
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              className="p-8 m-4 text-center rounded-md bg-[#24244B] "
-            >
-              <img className="w-12 h-16 mx-auto " src={heroku} alt="" />
-              <h1 className="font-semibold text-2xl">Heroku</h1>
-            </div>
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 pb-20">
+        {/* Frontend Skills */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-1 h-10 bg-gradient-to-b from-blue-500 to-purple-600 rounded-full" />
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Frontend Development</h2>
           </div>
-        </fieldset>
-        <fieldset className="border border-indigo-600 ">
-          <legend className="p-4 text-center font-semibold text-indigo-600 uppercase text-2xl">
-            Familiar
-          </legend>
-          <div className="grid grid-cols-2 ">
-            <div
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              className="p-8 m-4 text-center rounded-md bg-[#24244B] "
-            >
-              <img className="w-12 h-16 mx-auto " src={mongoDB} alt="" />
-              <h1 className="font-semibold text-2xl">MongoDB</h1>
-            </div>
-            <div
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              className="p-8 m-4 text-center rounded-md bg-[#24244B] "
-            >
-              <img className="w-12 h-16 mx-auto " src={figma} alt="" />
-              <h1 className="font-semibold text-2xl">Figma</h1>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
+            {skillsData.frontend.map((skill, index) => (
+              <SkillCard key={`${skill.name}-${index}`} skill={skill} index={index} total={skillsData.frontend.length} />
+            ))}
           </div>
-        </fieldset>
+        </motion.div>
+
+        {/* Backend Skills */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-16"
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-1 h-10 bg-gradient-to-b from-purple-500 to-pink-600 rounded-full" />
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Backend Development</h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {skillsData.backend.map((skill, index) => (
+              <SkillCard
+                key={`${skill.name}-${index}`}
+                skill={skill}
+                index={index + skillsData.frontend.length}
+                total={skillsData.backend.length}
+              />
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Tools & Others */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-1 h-10 bg-gradient-to-b from-cyan-500 to-blue-600 rounded-full" />
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Tools & Platforms</h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {skillsData.tools.map((skill, index) => (
+              <SkillCard
+                key={`${skill.name}-${index}`}
+                skill={skill}
+                index={index + skillsData.frontend.length + skillsData.backend.length}
+                total={skillsData.tools.length}
+              />
+            ))}
+          </div>
+        </motion.div>
       </div>
     </div>
   );

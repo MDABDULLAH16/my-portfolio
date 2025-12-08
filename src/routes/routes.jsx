@@ -7,6 +7,7 @@ import Projects from "../pages/Projects/Projects";
 import Blogs from "../pages/Blogs/Blogs";
 import Contact from "../pages/Contact/Contact";
 import Services from "../pages/Services/Services";
+import BlogDetail from "../pages/Blogs/BlogDetails";
 
 const routes = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const routes = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs></Blogs>,
+      },
+      {
+        path: "/blog/:id",
+        element: <BlogDetail></BlogDetail>,
       },
       {
         path: "/contact",

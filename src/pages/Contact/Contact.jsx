@@ -1,176 +1,196 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import TitleSection from "../../components/TitleSection/TitileSection";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { motion } from "motion/react";
+import { ToastContainer, toast } from "react-toastify";
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from "react-icons/fa";
 
 const Contact = () => {
+  const { register, handleSubmit, reset, formState: { isSubmitting } } = useForm();
+
+  const onSubmit = async (data) => {
+    try {
+      const res = await axios.post(
+        "https://my-portfolio-server-delta-indol.vercel.app/api/customer/message",
+        data
+      );
+
+      if (res.data.success === true) {
+        toast.success(res.data.message);
+        reset();
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      toast.error(error.message || "Failed to send message");
+    }
+  };
+
+  const contactInfo = [
+    {
+      icon: FaMapMarkerAlt,
+      title: "Address",
+      details: ["Bokshiganj, Jamalpur", "Mymensingh, Bangladesh"],
+    },
+    {
+      icon: FaPhone,
+      title: "Contact",
+      details: ["Mobile: (+880) 017357-52241", "Email: mdabdullah161036@gmail.com"],
+    },
+    {
+      icon: FaClock,
+      title: "Working Hours",
+      details: ["Saturday - Thursday", "08:00 - 17:00"],
+    },
+  ];
+
   return (
-    <section className=" bg-[#010313] text-white min-h-screen">
-      <div className="mx-auto w-[90%] px-4 py-16 sm:px-6 lg:px-6 lg:py-12">
-        <div className="mb-4">
-          <TitleSection
-            header={"Contact with"}
-            optional={"Me"}
-            helmet={"contact"}
-          ></TitleSection>
-        </div>
-        <div className="flex items-stretch justify-center">
-          <div className="grid md:grid-cols-2">
-            <div className="h-full pr-6">
-              <p className="mt-3 mb-12 text-lg dark:text-slate-400"></p>
-              <ul className="mb-6 md:mb-0">
-                <li className="flex">
-                  <div className="flex h-10 w-10 items-center justify-center rounded bg-blue-900 ">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      className="h-6 w-6"
-                    >
-                      <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
-                      <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path>
-                    </svg>
-                  </div>
-                  <div className="ml-4 mb-4">
-                    <h3 className="mb-2 text-lg font-medium leading-6dark:text-white">
-                      My Address
-                    </h3>
-                    <p className="text-gray-600 dark:text-slate-400">
-                      {" "}
-                      Bokshiganj,Jamalpur
-                    </p>
-                    <p className="text-gray-600 dark:text-slate-400">
-                      Mymensingh,Bangladesh
-                    </p>
-                  </div>
-                </li>
-                <li className="flex">
-                  <div className="flex h-10 w-10 items-center justify-center rounded bg-blue-900 text-gray-50">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      className="h-6 w-6"
-                    >
-                      <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
-                      <path d="M15 7a2 2 0 0 1 2 2"></path>
-                      <path d="M15 3a6 6 0 0 1 6 6"></path>
-                    </svg>
-                  </div>
-                  <div className="ml-4 mb-4">
-                    <h3 className="mb-2 text-lg font-medium leading-6 dark:text-white">
-                      Contact
-                    </h3>
-                    <p className="text-gray-600 dark:text-slate-400">
-                      Mobile: (+880) 017357-52241
-                    </p>
-                    <p className="text-gray-600 dark:text-slate-400">
-                      Email: mdabdullah161036@gmail.com
-                    </p>
-                  </div>
-                </li>
-                <li className="flex">
-                  <div className="flex h-10 w-10 items-center justify-center rounded bg-blue-900 text-gray-50">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      className="h-6 w-6"
-                    >
-                      <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
-                      <path d="M12 7v5l3 3"></path>
-                    </svg>
-                  </div>
-                  <div className="ml-4 mb-4">
-                    <h3 className="mb-2 text-lg font-medium leading-6  dark:text-white">
-                      Working hours
-                    </h3>
-                    <p className="text-gray-600 dark:text-slate-400">
-                      Saturday - Thursday: 08:00 - 17:00
-                    </p>
-                    {/* <p className="text-gray-600 dark:text-slate-400">
-                      Saturday &amp; Sunday: 08:00 - 12:00
-                    </p> */}
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div className="card h-fit max-w-6xl p-5 md:p-12" id="form">
-              <h2 className="mb-4 text-2xl font-bold dark:text-white"></h2>
-              <form id="contactForm ">
-                <div className="mb-6">
-                  <div className="mx-0 mb-1 sm:mb-4">
-                    <div className="mx-0 mb-1 sm:mb-4">
-                      <label
-                        for="name"
-                        className="pb-1 text-xs uppercase tracking-wider"
-                      ></label>
-                      <input
-                        type="text"
-                        id="name"
-                        autocomplete="given-name"
-                        placeholder="Your name"
-                        className="mb-2 w-full rounded-md border border-blue-600 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 bg-[#010313] sm:mb-0"
-                        name="name"
-                      />
-                    </div>
-                    <div className="mx-0 mb-1 sm:mb-4">
-                      <label
-                        for="email"
-                        className="pb-1 text-xs uppercase tracking-wider"
-                      ></label>
-                      <input
-                        type="email"
-                        id="email"
-                        autocomplete="email"
-                        placeholder="Your email address"
-                        className="mb-2 w-full rounded-md border border-blue-600 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 bg-[#010313] sm:mb-0"
-                        name="email"
-                      />
-                    </div>
-                  </div>
-                  <div className="mx-0 mb-1 sm:mb-4">
-                    <label
-                      for="textarea"
-                      className="pb-1 text-xs uppercase tracking-wider"
-                    ></label>
-                    <textarea
-                      id="textarea"
-                      name="textarea"
-                      cols="30"
-                      rows="2"
-                      placeholder="Write your message..."
-                      className="mb-2 w-full rounded-md border border-blue-600 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 bg-[#010313] sm:mb-0"
-                    ></textarea>
-                  </div>
-                </div>
-                <div className="text-center">
-                  <button
-                    type="submit"
-                    className="w-full bg-blue-800 text-white px-6 py-3 font-xl rounded-md sm:mb-0"
+    <section className="min-h-screen bg-gray-50 dark:bg-gray-950 text-black dark:text-white pt-12 pb-20">
+      <Helmet>
+        <title>Contact | MD Abdullah</title>
+      </Helmet>
+
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        theme="dark"
+      />
+
+      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+        <TitleSection header={"Get In Touch"} optional={"Contact Me"} helmet={"Contact"} />
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16">
+          {/* Contact Information */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false, amount: 0.3 }}
+            className="space-y-8"
+          >
+            <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+              Have any question or interested in working together? Feel free to reach out. I'm always open to discussing new projects, creative ideas, or opportunities to collaborate.
+            </p>
+
+            <div className="space-y-6">
+              {contactInfo.map((info, index) => {
+                const IconComponent = info.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    className="flex gap-6 group"
                   >
-                    Send Message
-                  </button>
-                </div>
-              </form>
+                    <div className="flex-shrink-0">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                        <IconComponent className="w-6 h-6" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                        {info.title}
+                      </h3>
+                      <div className="space-y-1">
+                        {info.details.map((detail, i) => (
+                          <p
+                            key={i}
+                            className="text-gray-600 dark:text-gray-400 text-sm"
+                          >
+                            {detail}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
-          </div>
+          </motion.div>
+
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false, amount: 0.3 }}
+            className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700"
+          >
+            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+              Send Me a Message
+            </h2>
+
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+              >
+                <input
+                  type="text"
+                  {...register("name", { required: "Name is required" })}
+                  placeholder="Your Name"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.15 }}
+              >
+                <input
+                  type="email"
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: "Invalid email address",
+                    },
+                  })}
+                  placeholder="Your Email"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+              >
+                <textarea
+                  {...register("message", { required: "Message is required" })}
+                  placeholder="Write your message..."
+                  rows="5"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
+                />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.25 }}
+              >
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-3 px-6 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </motion.button>
+              </motion.div>
+            </form>
+
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
+              I'll get back to you as soon as possible.
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>
