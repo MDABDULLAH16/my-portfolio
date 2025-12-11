@@ -54,14 +54,14 @@ const Banner = () => {
           className="flex-1 text-center md:text-left"
         >
           <motion.div variants={itemVariants} className="inline-block">
-            <span className="px-4 py-2 bg-blue-500/20 border border-blue-500/50 rounded-full text-blue-300 text-sm font-semibold">
+            <span className="px-4 py-4 mt-4 bg-blue-500/20 border border-blue-500/50 rounded-full text-blue-300 text-sm font-semibold">
               Welcome to my portfolio 👋
             </span>
           </motion.div>
 
           <motion.h1
             variants={itemVariants}
-            className="text-5xl md:text-7xl font-bold mt-6 leading-tight"
+            className="text-4xl md:text-5xl font-bold mt-6 leading-tight"
           >
             Hi, I'm{" "}
             <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
@@ -110,7 +110,7 @@ const Banner = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 target="_blank"
-                to="https://drive.google.com/file/d/1G5ikWkqnE43hZcht1P1yb261Zmc1lG8r/view?usp=sharing"
+                to="https://drive.google.com/file/d/1Yvdm3TePqGexANCdlg5D1EHEolYUk_nf/view?usp=sharing"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300"
               >
                 Download Resume <FaArrowDown className="animate-bounce" />
